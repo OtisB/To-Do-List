@@ -1,1 +1,19 @@
+header {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(43, 150, 250);
+}
 
+main {
+    max-width: 500px;
+}
+
+
+/* Utilities */
+.border {
+    border: solid red 2px;
+}
+
+
+
+ul { border: 1px dotted blue; }
