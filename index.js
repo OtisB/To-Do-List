@@ -12,9 +12,12 @@ const createListElement = (event) => {
     toDoList.appendChild(newLi);
 
     newLi.appendChild(createButton('checked-button', 'fa-check'));
-    newLi.appendChild(createButton('edit-button', 'fa-pencil'));
 
-    const deleteButton = createButton('delete-button', 'fa-trash-can'); //wegen onclick, wenn editListElement existiert -> auslagern
+    const editButton = createButton('edit-button', 'fa-pencil');
+    editButton.addEventListener('click', () => { editListElement(event, newLi); });
+    newLi.appendChild(editButton);
+
+    const deleteButton = createButton('delete-button', 'fa-trash-can');
     deleteButton.addEventListener('click', () => { removeListElement(event, newLi); });
     newLi.appendChild(deleteButton);
 
@@ -25,12 +28,14 @@ const removeListElement = (event, listElement) => {
     listElement.remove();
 };
 
-// TODO -- add event assignment
+const editListElement = (event, listElement) => {
+    console.log(listElement.innerHTML);
+};
+
 let createButton = (className, icon) => {
     const newButton = document.createElement("button");
     newButton.classList = `${className}`;
     newButton.innerHTML = `<i class="fa-solid ${icon}"></i>`;
-    // newButton.onclick = classList === 'delete-button' ? removeListElement : editElement;
     return newButton;
 };
 
