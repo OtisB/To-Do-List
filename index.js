@@ -29,7 +29,14 @@ const removeListElement = (event, listElement) => {
 };
 
 const editListElement = (event, listElement) => {
+    // log for innerHTML of listElement/newLi: TEXT<button class="checked-button"><i class="fa-solid fa-check"></i></button><button class="edit-button"><i class="fa-solid fa-pencil"></i></button><button class="delete-button"><i class="fa-solid fa-trash-can"></i></button>
     console.log(listElement.innerHTML);
+
+    const stringButtonElements = '<button class="checked-button"><i class="fa-solid fa-check"></i></button><button class="edit-button"><i class="fa-solid fa-pencil"></i></button><button class="delete-button"><i class="fa-solid fa-trash-can"></i></button>';
+
+    const stringText = "Finish Bootcamp!"
+
+    listElement.innerHTML = `${stringText}${stringButtonElements}`;
 };
 
 let createButton = (className, icon) => {
