@@ -14,10 +14,9 @@ const createListElement = (event) => {
     newLi.appendChild(createButton('checked-button', 'fa-check'));
     newLi.appendChild(createButton('edit-button', 'fa-pencil'));
 
-    const newButton = createButton('delete-button', 'fa-trash-can'); //wegen onclick, wenn editListElement existiert -> auslagern
-    newButton.addEventListener('click', () => { removeListElement(event, newLi); });
-
-    newLi.appendChild(newButton);
+    const deleteButton = createButton('delete-button', 'fa-trash-can'); //wegen onclick, wenn editListElement existiert -> auslagern
+    deleteButton.addEventListener('click', () => { removeListElement(event, newLi); });
+    newLi.appendChild(deleteButton);
 
     event.preventDefault();
 };
