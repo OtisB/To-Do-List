@@ -10,8 +10,18 @@ const programmStart = () => {
 const createListElement = (event) => {
     const newLi = document.createElement("li");
     //newLi.innerText = document.forms[0].elements["input-new-task"].value;
-    newLi.innerText = document.getElementById('input-new-task').value;
     toDoList.appendChild(newLi);
+
+    //TODO: create a helper function
+    let newInput = document.createElement('input');
+    newInput.setAttribute('type', 'text');
+    newInput.setAttribute('name', 'task');
+    newInput.classList = ('task-entry');
+    newInput.setAttribute('value', document.getElementById('new-task').value);
+    newInput.setAttribute('readonly', 'readonly');
+    //end of TODO
+
+    newLi.appendChild(newInput);
 
     newLi.appendChild(createButton('checked-button', 'fa-check'));
 
