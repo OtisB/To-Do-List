@@ -8,7 +8,8 @@ const programmStart = () => {
 
 const createListElement = (event) => {
     const newLi = document.createElement("li");
-    newLi.innerText = document.forms[0].elements["input123"].value;     //warum keine id='' -getElementById?
+    //newLi.innerText = document.forms[0].elements["input-new-task"].value;
+    newLi.innerText = document.getElementById('input-new-task').value;
     toDoList.appendChild(newLi);
 
     newLi.appendChild(createButton('checked-button', 'fa-check'));
