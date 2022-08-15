@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
 header {
     display: flex;
     justify-content: center;
@@ -16,4 +23,25 @@ main {
 
 
 
-ul { border: 1px dotted blue; }
+ul {
+    border: 1px dotted blue;
+}
+
+input:checked~button {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+input {
+    border-radius: 4px;
+}
+
+button,
+div.fieldborder {
+    border: 1px solid blue;
+    width: 30px;
+    display: inline-block;
+    border-radius: 4px;
+    background: #eee;
+    text-align: center;
+}
