@@ -1,13 +1,29 @@
 
 //const toDoList = document.getElementById('list-container');
-const toDoList = document.querySelector('#list-container form');
+const toDoList = document.querySelector('#list-container');
 
 
 const programmStart = () => {
     document.getElementById("submit").addEventListener("click", createListElement);
+
+    const tasksArr =    JSON.parse (localStorage.getItem ("Tasks"));
+    console.log(tasksArr);
+
 }
 
+function localstor() {
+    const allTasks = document.getElementsByClassName('task-entry');
+    const tasksArr = Array.from(allTasks);
+    const taskArrvalues = tasksArr.map( task => task.value);
+    const json = JSON.stringify(taskArrvalues);
+    // console.log(json);
+    localStorage.setItem("Tasks", json);
+}
+
+
+
 const createListElement = (event) => {
+    
     const newLi = document.createElement("li");
     toDoList.appendChild(newLi);
 
@@ -24,10 +40,7 @@ const createListElement = (event) => {
     const ckb = document.createElement("input");
     ckb.setAttribute("type", "checkbox");
     // ckb.setAttribute("checked", "checked");
-    let dv = document.createElement("div");
-    dv.className = "fieldborder";
-    dv.appendChild(ckb);
-    newLi.appendChild(dv);
+    newLi.appendChild(ckb);
 
     const editButton = createButton('edit-button', 'fa-pencil');
     editButton.addEventListener('click', () => { editListElement(event, newLi); });
@@ -37,11 +50,19 @@ const createListElement = (event) => {
     deleteButton.addEventListener('click', () => { removeListElement(event, newLi); });
     newLi.appendChild(deleteButton);
 
+    document.getElementById('new-task').value = '';
+
     event.preventDefault();
+
+    
+    localstor();
 };
 
 const removeListElement = (event, listElement) => {
     listElement.remove();
+
+    
+    localstor();
 };
 
 const editListElement = (event, listElement) => {
@@ -53,8 +74,12 @@ const editListElement = (event, listElement) => {
         listElement.childNodes[2].firstChild.className = "fa-solid fa-pencil";
     } else {
         listElement.childNodes[0].removeAttribute("readonly");
+        listElement.childNodes[0].focus();
         listElement.childNodes[2].firstChild.className = "fa-solid fa-floppy-disk";
     }
+
+    
+    localstor();
 };
 
 const checkListElement = (event, listElement) => {

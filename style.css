@@ -27,6 +27,11 @@ ul {
     border: 1px dotted blue;
 }
 
+li > * {
+    margin: 0.5rem 0;
+    margin-left: 1rem;
+}
+
 input:checked~button {
     pointer-events: none;
     opacity: 0.5;
@@ -36,8 +41,7 @@ input {
     border-radius: 4px;
 }
 
-button,
-div.fieldborder {
+button {
     border: 1px solid blue;
     width: 30px;
     display: inline-block;
