@@ -6,12 +6,12 @@ const toDoList = document.querySelector('#list-container');
 const programmStart = () => {
     document.getElementById("submit").addEventListener("click", createListElement);
 
-    const tasksArr =    JSON.parse (localStorage.getItem ("Tasks"));
+    const tasksArr =    JSON.parse(localStorage.getItem ("Tasks"));
     console.log(tasksArr);
 
 }
 
-function localstor() {
+function localstorageSave() {
     const allTasks = document.getElementsByClassName('task-entry');
     const tasksArr = Array.from(allTasks);
     const taskArrvalues = tasksArr.map( task => task.value);
@@ -21,9 +21,7 @@ function localstor() {
 }
 
 
-
-const createListElement = (event) => {
-    
+const newListElem = () => {
     const newLi = document.createElement("li");
     toDoList.appendChild(newLi);
 
@@ -31,7 +29,7 @@ const createListElement = (event) => {
     newInput.setAttribute('type', 'text');
     newInput.setAttribute('name', 'task');
     newInput.classList = ('task-entry');
-    newInput.setAttribute('value', document.getElementById('new-task').value);
+    newInput.setAttribute('value', '');
     newInput.setAttribute('readonly', 'readonly');
 
     newLi.appendChild(newInput);
@@ -49,20 +47,24 @@ const createListElement = (event) => {
     const deleteButton = createButton('delete-button', 'fa-trash-can');
     deleteButton.addEventListener('click', () => { removeListElement(event, newLi); });
     newLi.appendChild(deleteButton);
+    return newInput;
+}
 
-    document.getElementById('new-task').value = '';
 
-    event.preventDefault();
-
+const createListElement = (event) => {
     
-    localstor();
+    const inp = newListElem();
+    inp.value = document.getElementById('new-task').value;
+    document.getElementById('new-task').value = '';
+    event.preventDefault();
+    localstorageSave();
 };
 
 const removeListElement = (event, listElement) => {
     listElement.remove();
 
     
-    localstor();
+    localstorageSave();
 };
 
 const editListElement = (event, listElement) => {
@@ -79,7 +81,7 @@ const editListElement = (event, listElement) => {
     }
 
     
-    localstor();
+    localstorageSave();
 };
 
 const checkListElement = (event, listElement) => {
