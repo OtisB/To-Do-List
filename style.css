@@ -15,19 +15,11 @@ main {
     max-width: 500px;
 }
 
-
-/* Utilities */
-.border {
-    border: solid red 2px;
-}
-
-
-
 ul {
     border: 1px dotted blue;
 }
 
-li > * {
+li>* {
     margin: 0.5rem 0;
     margin-left: 1rem;
 }
@@ -49,3 +41,8 @@ button {
     background: #eee;
     text-align: center;
 }
+
+/* Utilities */
+/* .border {
+    border: solid red 2px;
+} */
