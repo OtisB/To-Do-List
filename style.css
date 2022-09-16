@@ -2,6 +2,13 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+
+    list-style: none;
+}
+
+body {
+    margin: 6rem 30rem;
+    border-radius: 20px;
 }
 
 
@@ -12,7 +19,10 @@ header {
 }
 
 main {
-    max-width: 500px;
+    /* max-width: 500px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
@@ -27,7 +37,7 @@ ul {
     border: 1px dotted blue;
 }
 
-li > * {
+li>* {
     margin: 0.5rem 0;
     margin-left: 1rem;
 }
