@@ -8,29 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="index.js" defer></script>
     <link href="style.css" type="text/css" rel="stylesheet">
     <title>To Do List</title>
 </head>
 
 <body>
-    <header class="border">
-        <h1>To Do List</h1>
-    </header>
-
-    <main class="border">
-        <form>
-            <label for="new-task">Lege eine neue Aufgabe an</label>
-            <input type="text" name="new-task" id="new-task" placeholder="Neues To-Do anlegen">
-            <button id="submit"><i class="fa-solid fa-plus"></i></button>
-        </form>
-        <form>
-            <ul id="list-container">
-            </ul>
-        </form>
-
-    </main>
-
-    <script src="index.js"></script>
+    <section class="container">
+        <header>
+            <h1>To Do List</h1>
+        </header>
+        <main class="border">
+            <form class="create-todo">
+                <input type="text" name="new-task" id="new-task" placeholder="Neues To-Do anlegen">
+                <button id="submit"><i class="fa-solid fa-plus"></i></button>
+            </form>
+            <form>
+                <ul id="list-container">
+                </ul>
+            </form>
+        </main>
+    </section>
 </body>
 
 </html>
