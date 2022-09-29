@@ -94,7 +94,7 @@ const checkListElement = (event, listElement) => {
 let createButton = (className, icon) => {
     const newButton = document.createElement('button');
     newButton.classList = `${className}`;
-    newButton.innerHTML = `<i class="fa-solid ${icon}"></i>`;
+    newButton.innerHTML = `<i class="fa-solid ${icon} fa-2x"></i>`;
     return newButton;
 };
 
